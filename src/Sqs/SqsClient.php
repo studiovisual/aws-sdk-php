@@ -149,12 +149,12 @@ class SqsClient extends AwsClient
             }
         }
 
-        return md5($attributeValues);
+        return password_hash($attributeValues, PASSWORD_DEFAULT);
     }
 
     private static function calculateBodyMd5($message)
     {
-        return md5($message['Body']);
+        return password_hash($message['Body'], PASSWORD_DEFAULT);
     }
 
     private static function getEncodedStringPiece($piece)

@@ -203,7 +203,7 @@ final class Middleware
             ) use ($handler){
                 return $handler($command, $request->withHeader(
                     'aws-sdk-invocation-id',
-                    md5(uniqid(gethostname(), true))
+                    password_hash(uniqid(gethostname(), true), PASSWORD_DEFAULT)
                 ));
             };
         };

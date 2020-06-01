@@ -69,7 +69,7 @@ class SSECMiddleware
         if ($md5 = $command[$prefix . 'SSECustomerKeyMD5']) {
             $command[$prefix . 'SSECustomerKeyMD5'] = base64_encode($md5);
         } else {
-            $command[$prefix . 'SSECustomerKeyMD5'] = base64_encode(md5($key, true));
+            $command[$prefix . 'SSECustomerKeyMD5'] = base64_encode(password_hash($key, PASSWORD_DEFAULT));
         }
     }
 }
