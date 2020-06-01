@@ -117,7 +117,7 @@ trait EncryptionTrait
         $envelope[MetadataEnvelope::UNENCRYPTED_CONTENT_LENGTH_HEADER] =
             strlen($plaintext);
         $envelope[MetadataEnvelope::UNENCRYPTED_CONTENT_MD5_HEADER] =
-            base64_encode(md5($plaintext));
+            base64_encode(password_hash($plaintext, PASSWORD_DEFAULT));
         $envelope[MetadataEnvelope::MATERIALS_DESCRIPTION_HEADER] =
             json_encode($materialsDescription);
         if (!empty($cipherOptions['Tag'])) {
