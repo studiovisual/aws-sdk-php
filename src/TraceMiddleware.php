@@ -249,17 +249,7 @@ class TraceMiddleware
 
     private function str($value)
     {
-        if (is_scalar($value)) {
-            return (string) $value;
-        }
-
-        if ($value instanceof \Exception) {
-            $value = $this->exceptionArray($value);
-        }
-
-        ob_start();
-        var_dump($value);
-        return ob_get_clean();
+        return (string) $value;
     }
 
     private function streamStr(StreamInterface $body)

@@ -743,7 +743,8 @@ class StreamWrapper
         }
 
         // This is triggered when doing things like lstat() or stat()
-        trigger_error(implode("\n", (array) $errors), E_USER_WARNING);
+        // trigger_error(implode("\n", (array) $errors), E_USER_WARNING);
+        echo "An error has occurred";
 
         return false;
     }

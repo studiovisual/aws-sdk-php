@@ -141,7 +141,8 @@ class StandardSessionConnection implements SessionConnectionInterface
      */
     protected function triggerError($error)
     {
-        trigger_error($error, E_USER_WARNING);
+        // trigger_error($error, E_USER_WARNING);
+        echo "An error has occurred";
 
         return false;
     }
